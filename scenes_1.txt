@@ -1,0 +1,283 @@
+@s_wake
+*Pelham Hollow. 5:50 a.m. Frost on the windshield, a rubber ball under the driver's seat, and a bus that is, legally, yours.*
+Noor: Okay, Eli. You left me a bus. A bus.
+Noor: A ball, a stack of logbooks, a route nobody's driven in three weeks, and a loan officer's voicemail I'm not listening to.
+> give:p01 flag:wake_done
+*Under the seat: a red rubber ball, scuffed and loved. A sticky note in blocky handwriting: IT ONLY BOUNCES IF YOU LET IT HIT THE GROUND.*
+Noor: Cryptic. Very helpful. Thank you.
+Noor: Fine. One loop. See if the thing even runs.
+*W/S gas and brake, A/D steer, Space handbrake, H horn, L lights, R recover. E to get in or out or talk. Stop at a bus stop and the door opens itself. J opens your journal.*
+end
+
+@s_teo_intro
+*A kid in a blue cap sits on the Maple Street bench with a yellow backpack, glaring at the empty road.*
+Teo: You're not Eli.
+Noor: No. I'm his granddaughter. Noor.
+Teo: Great. He said you'd never come.
+Noor: ...He said that?
+Teo: He said you were busy being brilliant. He said it nicely. Mostly.
+Teo: I ride to school. Square stop, 8:10. He never charged me.
+? That's not how a business works. | teo-1 | l_biz
+? Hop on. First ride's on the house. | teo+3 flag:teo_free | l_free
+? How much did you pay him? | teo+2 | l_pay
+:l_biz
+Noor: Look, I've got a loan, a bus, and no idea how any of this works. I can't run a free shuttle.
+Teo: Then it's not a bus. It's a taxi with a bad attitude.
+Noor: ...That's fair. I hear myself.
+goto l_end
+:l_free
+Noor: Get in. Don't touch anything.
+Teo: Wouldn't dream of it.
+goto l_end
+:l_pay
+Teo: Told him I'd pay when I was rich. He wrote it in the little book.
+Noor: There's a little book?
+Teo: There's always a little book.
+goto l_end
+:l_end
+Teo: Mondays to Fridays. Maple at 7:20, back from the Square around 3:30. Don't be late. He was never late.
+> flag:teo_met give:p02 time+5
+end
+
+@s_ruth_intro
+*Orchard Row. A woman in a lilac cardigan stands on a porch step, cane planted, giving the bus the look of a judge who has read your file.*
+Ruth: Hm. The shocks are the same. The driver's younger.
+Noor: Mrs. Pellegrino? I'm Noor. Eli's...
+Ruth: Granddaughter. I know. He talked about you like weather. Always somewhere else, always worth watching.
+Ruth: Monday, Wednesday, Friday. Eight o'clock, to the clinic past the Gate. Four hours in a chair. Then home.
+Noor: Four hours of...
+Ruth: Dialysis, dear. Don't make the face. Eli never made the face.
+? I'll be here at eight. Every time. | ruth+3 flag:promised_ruth | l_p
+? I'll try. I've got a lot going on. | ruth+1 | l_t
+? What did Eli charge you? | ruth+2 | l_c
+:l_p
+Ruth: Don't promise what you haven't tested, dear. But I'll hold you to it.
+goto l_e
+:l_t
+Ruth: "Try" is what people say when they've already decided to fail politely.
+Noor: Ouch.
+Ruth: Honest. There's a difference.
+goto l_e
+:l_c
+Ruth: We had an arrangement. He wrote it in a book and I never read the book.
+Noor: A book? Everyone keeps mentioning a book.
+Ruth: Mm. Eli wasn't big on explaining. He was big on showing up.
+goto l_e
+:l_e
+Ruth: Orchard Row stop. Eight sharp. The Gate by half past nine. And if I'm not on the porch...
+Ruth: ...knock. Don't just leave.
+> flag:ruth_met give:p03 time+10
+end
+
+@s_mo_intro
+*A salvage yard stitched together from fences, engine blocks and optimism. A man in orange coveralls is under a van, singing something off-key.*
+Mo: If you're here about the tow, I'm not open.
+Noor: I'm not here about a tow. I'm here because the bus bounces.
+Mo: Hah! Bounce. She bounces because your grandfather swapped the springs for something he refused to name.
+Noor: She nearly threw me through the roof at the Maple dip.
+Mo: Then you drove it right. You're supposed to let her.
+Mo: Eli and I were rebuilding the whole fleet. That van, the minibus, the tow truck, Gus the pickup. Dead as dinosaurs. He said, Mo, one day this town needs more than one bus.
+Noor: Right now I need one bus that doesn't kill me.
+Mo: One's easy. Fixing the rest costs money and evenings. Your call.
+*There's a workbench by the garage doors. Stand at it any time and Mo will take you through the yard: restoring the old fleet, repairs, and upgrades for the depot.*
+> flag:mo_met give:p04 time+10
+end
+
+@s_hal_intro
+*The Hollow Diner. Steam on the windows, one cook, one counter, one man in a red apron who does not look up.*
+Hal: Kitchen's closing.
+Noor: It's three-thirty.
+Hal: Kitchen's closing early.
+Noor: I just want a coffee. I'm Noor. Eli's...
+Hal: I know who you are. You've got his jaw and none of his sense.
+Noor: Excuse me?
+Hal: Your grandfather and I go back forty years. He was best man at my wedding and the worst friend I ever had.
+? What did he do? | hal+1 | l_ask
+? I'm sorry for your loss. | hal+2 | l_sorry
+? I only want coffee. | hal-1 | l_cof
+:l_ask
+Hal: Ask him. Oh, wait.
+Noor: ...
+Hal: That was low. Sorry. Sit. Drink.
+goto l_end
+:l_sorry
+Hal: Yeah. Well. He'd have hated this. A bus nobody rides, a diner nobody eats at, two old men too stubborn to say it.
+goto l_end
+:l_cof
+Hal: Black. A dollar. Cash. He never paid for his either.
+goto l_end
+:l_end
+Hal: One piece of advice. When the county tells you the loop is "under review," believe them.
+> flag:hal_met give:p05 cash-1 time+15
+end
+
+@s_greer_intro
+*Town Hall smells of copier toner and old wood. A woman in a sand-colored blazer holds a tablet in one hand and a map of the Hollow in the other. The loop is highlighted in red.*
+Greer: Ms. Hadley. Ines Greer, county planning. I'm sorry about your grandfather.
+Noor: Thank you. Why is the route highlighted in red?
+Greer: Because it's the least efficient transit line in the county. Forty-one riders a day on a bus that burns more than it earns.
+Greer: I'm proposing to replace it with a single express to the valley. Faster, cheaper, a real timetable. The hearing is on the eighteenth.
+Noor: And the people who live on the loop?
+Greer: Would walk further to a stop. Most of them. Yes.
+? That's not nothing. | greer+1 | l_n
+? You didn't ask anyone, did you. | greer-1 | l_a
+? Show me the numbers. Maybe you're right. | greer+3 flag:greer_open | l_s
+:l_n
+Greer: It is not nothing. I've been in this job nine years. I've never found a plan where nobody loses.
+goto l_e
+:l_a
+Greer: I did, actually. I asked the data. People are harder to schedule.
+Noor: That might be the saddest thing I've heard all week.
+goto l_e
+:l_s
+Greer: Take the folder. If you can show the loop earns its keep, I'll amend the plan. I mean it.
+goto l_e
+:l_e
+Greer: Ridership, reliability, response times. That's what the board votes on. Sixteen days.
+> flag:greer_met give:p06 time+15
+end
+
+@s_frost
+*Mo's breath smokes in the yard light. The thermometer on the garage door says thirty-three and falling.*
+Mo: First frost tonight. Tomorrow the radiator remembers it's made of old copper.
+Noor: Is that a thing?
+Mo: Antifreeze, belts, wipers. Thirty bucks and ten minutes. Or find out the hard way, like your grandfather. Twice.
+? Do it. It's thirty dollars. | cash-30 mo+2 flag:winterized | l_do
+? I'll risk it. | mo-1 | l_no
+:l_do
+Mo: Smart. Eli never did his first winter right.
+> time+20
+end
+:l_no
+Mo: Okay. I'll put the kettle on for the funeral.
+Noor: Funny.
+Mo: I'm only half joking.
+end
+
+@s_first_snow
+*It snowed in the night. The depot yard is a white blanket with a boy-shaped dent in it. Teo is sitting on the bumper.*
+Teo: You said 7:20.
+Noor: It's 6:40.
+Teo: Ice. Mom's on a double. Walking was a bad idea.
+[flag:winterized] Noor: Come on. The heater works. Mo made sure of that.
+[!flag:winterized] Noor: Come on. The heater is... optimistic.
+> teo+2 time+5
+Teo: Eli kept chains in the side bin. Third bolt. Hit it with your palm.
+Noor: Of course he did.
+*Snow makes roads slick and rides rougher. Drive smooth. Bounce is soft, so lean into it, don't fight it.*
+end
+
+@s_candle
+*The power dies at nine. The depot goes dark except for the stove and a flashlight with a dying battery. You find a box of candles labeled FOR WHEN THE COUNTY FAILS.*
+Noor: Eli. You labeled your candles.
+*Under the driver's seat is a green logbook. Page one is dated 1987. The latest entry is three weeks old, in handwriting that shakes.*
+Noor: Tuesday. Orchard Row, 8:02. Ruth on the porch. Check. Maple. Teo. Check. Gate, 9:32. Anders waved. Check.
+Noor: Check. Check. Check.
+Noor: He wasn't driving a route. He was counting people.
+> give:p10 flag:candle_night
+end
+
+@s_lena_call
+*Your phone buzzes on the dashboard. MOM. It has been a long time since that name sat there without a plan attached.*
+? Answer. | lena+2 flag:lena_talked | l_a
+? Let it ring. | lena-1 | l_r
+:l_a
+Lena: Noor. You answered.
+Noor: Apparently.
+Lena: I heard about the bus. I heard you stayed.
+Noor: For a week. Maybe two.
+Lena: Your grandfather kept that thing running for thirty-eight years. I begged him to sell it. Twice a year. That's part of why we don't...
+Noor: I know, Mom.
+Lena: I'm not calling to fight. I'm in the car. I'll come up next week. I want to see it.
+Noor: ...Okay.
+> lena+1 flag:lena_coming
+end
+:l_r
+*It rings eleven times. Then a text, three words: I'm coming anyway.*
+> flag:lena_coming
+end
+
+@s_ruth_emerg
+*8:14. The phone rings. RUTH P., in Eli's old contact list. She is breathing hard.*
+Ruth: Noor. The door's jammed. The cold. I can't get the bolt.
+Ruth: I'd call the neighbors but it's Friday and they're all at work.
+Noor: Ruth, hold on. Don't move. I'm coming.
+Ruth: I'm not going anywhere, dear. I'm sitting on the floor. Which is humiliating.
+Noor: Ten minutes. Maybe twelve.
+*Get to Ruth's porch on Orchard Row before 10:45. Park nearby and walk to her door.*
+> flag:ruth_called
+end
+
+@s_ruth_rescue
+*Ruth is on the kitchen floor with her back against the cabinet, cane across her knees, giving you a look that says she'll deny this ever happened.*
+Ruth: You made it.
+Noor: Are you hurt?
+Ruth: Only my dignity. Help me up. Slowly.
+Noor: I'm taking you straight to the clinic.
+Ruth: I'm scheduled for noon. If you take me early they'll park me in a chair like a coat.
+? Take her anyway. Early is better than late. | ruth+4 flag:ruth_ok | l_ok
+? Fix the bolt first, then go. | ruth+3 flag:ruth_ok | l_ok2
+:l_ok
+Ruth: Bossy. Like Eli.
+Noor: He was right.
+Ruth: Don't tell him I said so. Oh, wait.
+goto l_end
+:l_ok2
+Noor: I'll fix the door, then we go. Two minutes.
+Ruth: Mm. He'd have had it done in one.
+goto l_end
+:l_end
+Ruth: Thank you for coming, dear. Not everyone does.
+> time+25 give:p11
+end
+
+@f_ruth
+*You were still fifteen minutes out when the sirens went down Orchard Row. By the time you parked, the ambulance was already turning for the valley.*
+Noor: No. No, no, no.
+*A neighbor in a robe stands on the porch holding Ruth's cardigan.*
+Noor: I should've left earlier. I should've asked someone closer to go.
+Mo: Noor. You okay? Heard it on the scanner.
+Mo: She's stable. They've got her. You didn't kill anyone, kid.
+Noor: I didn't save anyone either.
+Mo: Eli missed one once. Wrote it in the book. Underlined it. Then he built a phone tree. Ask people before you need them.
+> lesson:ask mo+2 time+30
+end
+
+@s_blizzard
+*The sky has gone the color of a dirty dish. Mo is at the depot with a thermos and a face like a weather report.*
+Mo: Blizzard rolling in by noon. Eli's rule: first big storm, you do the check-in loop.
+Noor: The what?
+Mo: Orchard Row, Maple, the Mill, the Farm. You knock on every door. The old folks, the kids who ride. You don't wait for them to call.
+Noor: That's not on the route.
+Mo: It never was. It's just the route.
+? Do the loop. | ruth+2 teo+2 hal+2 mo+2 flag:blizzard_checked cash-15 time+120 | l_go
+? The roads are too dangerous. I'm staying in. | mo-2 ruth-1 teo-1 flag:blizzard_skipped | l_no
+:l_go
+*Four hours of white. Four doors. Ruth wraps you in a scarf. Teo's mom is asleep after a double and Teo is, impossibly, doing homework. Hal won't open the diner but leaves two thermoses on the step with your name on them.*
+Noor: Check. Check. Check.
+> give:p12
+end
+:l_no
+Mo: Sensible. Eli would've been out there. But sensible is fine.
+*The storm howls until dusk. Nobody calls. You tell yourself that means nobody needed you.*
+end
+
+@s_ledger
+*Sunday. Snow lies on the bus roof like a held breath. In the bin behind the driver's seat you find a second book. Not a logbook. A ledger.*
+Noor: UNPAID FARES. Okay. Here's where it gets embarrassing.
+*Page after page of names. Ruth: 412 rides. Teo: 238. Anders: 91. Dates, amounts in pencil, and beside each a single word: Paid.*
+Noor: Paid? With what? These are zeros.
+*In the margins, tiny notes: Ruth's daughter called. Check on her. Good. T. skipped school, took him to the lake. Fine. Anders's tractor died. Drove his boy to the vet.*
+Noor: He wasn't collecting fares. He was keeping a ledger of everybody who was okay.
+Noor: And every one of those people stopped being a line item the day he died.
+? Keep the ledger. Carry on his rule: nobody gets left. | ruth+2 teo+2 flag:ledger_kept lesson:ledger | l_keep
+? Fares are fares. I can't run a charity. | ruth-2 teo-2 flag:ledger_closed flag:ruth_pays flag:teo_pays | l_close
+:l_keep
+*You write a new line at the bottom in your own handwriting: N. Hadley. Sunday. Everyone's still here.*
+> give:p15
+end
+:l_close
+Noor: I'm sorry, Eli. I don't know how to do it your way.
+*You close the book. It stays closed. From now on, the regulars pay their way.*
+> give:p15
+end

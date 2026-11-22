@@ -1,0 +1,29 @@
+# id | day(s) | from-hour | to-hour | place (! = auto-trigger, phone, sleep) | npc | scene | condition | on-miss effects | objective
+wake | 1 | 6 | 23 | !depot | - | s_wake | | | Look around the depot. Then take Bounce out for a loop.
+teo_intro | 1 | 7 | 13 | stop_maple | teo | s_teo_intro | | teo-2 | A kid is waiting at the Maple St stop.
+ruth_intro | 1 | 9 | 18 | ruth_home | ruth | s_ruth_intro | | ruth-2 | Visit Ruth Pellegrino on Orchard Row.
+mo_intro | 1 | 12 | 21 | yard | mo | s_mo_intro | | | Visit Mo's salvage yard.
+hal_intro | 1 | 15 | 21 | diner | hal | s_hal_intro | | hal-1 | Get a coffee at the Hollow Diner.
+greer_intro | 2 | 9 | 18 | townhall | greer | s_greer_intro | | greer-1 | Someone from the county wants a word. Town Hall.
+firstfrost | 3 | 16 | 22 | yard | mo | s_frost | | | Mo says a frost is coming. Stop by the yard.
+first_snow | 4 | 6 | 11 | !depot | teo | s_first_snow | | teo-1 | First snow. Check the depot.
+candle_night | 4 | 4 | 4 | sleep | - | s_candle | | |
+lena_call | 5 | 17 | 23 | phone | - | s_lena_call | | lena-1 |
+ruth_emergency | 5 | 8 | 10.7 | phone | - | s_ruth_emerg | done:ruth_intro | |
+ruth_rescue | 5 | 8 | 10.75 | ruth_home | ruth | s_ruth_rescue | flag:ruth_called | ruth-6 flag:ruth_hospital scene:f_ruth | Ruth needs you NOW. Orchard Row, before 10:45.
+blizzard | 6 | 7 | 20 | !depot | mo | s_blizzard | | mo-1 | Blizzard coming. Mo is waiting at the depot.
+ledger_reveal | 7 | 8 | 22 | !depot | - | s_ledger | | | Something in the depot bin has been bothering you.
+lena_visit | 8 | 9 | 19 | depot | lena | s_lena_visit | | lena-2 | Someone is waiting at the depot.
+hal_spur | 9 | 11 | 21 | diner | hal | s_hal_spur | hal>=1 | | Hal wants to tell you something. The diner.
+flood | 10 | 6 | 14 | !depot | mo | s_flood | | | The river is rising. Get to Mo at the depot.
+evac_late | 10 | 20 | 23 | phone | - | f_flood | done:flood,!flag:evac_done | |
+greer_data | 11 | 9 | 20 | townhall | greer | s_greer_data | greer_met | | Greer asked for the ridership numbers. Town Hall.
+festival_prep | 12 | 9 | 20 | plaza | hal | s_fest_prep | | hal-1 | Help set up the festival on the Square.
+dara_return | 13 | 10 | 20 | depot | dara | s_dara_return | | | A familiar face at the depot.
+dara_reveal | 14 | 15 | 23 | dock | dara | s_dara_reveal | done:dara_return | dara-4 | Meet Dara at the lake dock.
+festival | 15 | 16 | 23 | plaza | - | s_festival | | teo-2 scene:f_festival | The Summer Festival on the Square. Be there.
+pike_offer | 16 | 9 | 20 | depot | pike | s_pike | | | A man in a suit is at the depot.
+campaign | 16 | 10 | 22 | townhall | greer | s_campaign | | | Talk to Greer about the vote. Town Hall.
+cassette_night | 17 | 1 | 1 | sleep | - | s_cassette | | |
+final_hearing | 17 | 16 | 23 | townhall | - | s_hearing | | | Tonight is the public hearing. Town Hall.
+vote | 18 | 8 | 23 | townhall | greer | s_vote | | | The vote. Go to Town Hall.

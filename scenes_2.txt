@@ -1,0 +1,387 @@
+@s_lena_visit
+*Spring thaw. Water drips off the depot roof like applause. A woman in a teal coat stands beside the bus, one hand flat on its fender the way you'd touch a horse.*
+Lena: She's smaller than I remember.
+Noor: You're taller than I remember.
+Lena: I'm not. I'm... never mind. Hi, Noor.
+Noor: Hi, Mom.
+Lena: I used to hate this bus. You know that. I hated it for what it took from him. From us. He'd leave at six, come home at nine, tell us about everyone else's day.
+Noor: And you wanted him to sell it.
+Lena: I wanted him home. I wanted someone to put us in the ledger.
+Noor: ...You knew about the ledger?
+Lena: Everyone knew about the ledger, Noor. It's a very small town.
+? I'm sorry I stayed gone. | lena+4 flag:lena_forgiven | l_sorry
+? You left too. You don't get to be the injured party. | lena-3 | l_hard
+? I'm not ready to talk about it. | lena+1 | l_wait
+:l_sorry
+Lena: I'm sorry too. For the voicemails I didn't leave.
+Noor: We're really good at this, aren't we.
+Lena: We have a gift.
+goto l_e
+:l_hard
+Lena: That's fair. Some of it's fair.
+Lena: But I came a long way.
+Noor: I know.
+> scene:f_lena
+goto l_e
+:l_wait
+Lena: Okay. I'm at the inn through Sunday. The offer stands.
+goto l_e
+:l_e
+> flag:lena_here time+20 give:p17
+end
+
+@f_lena
+*She doesn't slam a door. She doesn't raise her voice. She just stands there, hand still on the bus, the way a person stands when she's been right and it cost her everything.*
+Lena: I should go.
+*The taillights of her rental disappear down the road. You stand in the yard with the ball in your hand and nothing to bounce it off.*
+Noor: Great. Brilliant. Thanks, Eli.
+Mo: Thaw takes time, kid. Don't skate the ice.
+> lesson:thaw
+end
+
+@s_hal_spur
+*Rain on the window. The diner is empty except for a plate of pie nobody ordered.*
+Hal: Sit.
+Noor: Is that pie?
+Hal: It's a peace offering. Eat it before I change my mind.
+Hal: You want to know what your grandfather did.
+Noor: I think I'd like to hear it from you.
+Hal: Nineteen ninety-four. The mill rail spur, the one rusting out by the river. The county needed a vote to sell it. If it sold, forty jobs moved to a plant up the valley. If it didn't, the mill stayed on a subsidy that was already dying.
+Hal: Eli was on the board. He voted to sell.
+Noor: He saved forty jobs.
+Hal: He killed four hundred. The mill closed anyway three years later, and the spur was gone, and so was everything that could've brought it back. Forty people moved to the valley. Four hundred stayed and went broke.
+Hal: He thought he was doing the sensible thing.
+? Maybe the sensible thing was wrong. And maybe he knew it. | hal+3 flag:hal_spur_known | l_know
+? It was thirty years ago. You can't blame a dead man. | hal-2 | l_old
+? Tell me what he said to you after. | hal+2 flag:hal_spur_known | l_after
+:l_know
+Hal: He spent the next thirty years trying to make it up. Ran that bus every day. Never once called it penance.
+goto l_end
+:l_old
+Hal: Ah. You're a Hadley, all right.
+goto l_end
+:l_after
+Hal: "I'll drive 'em home, Hal. Everyone you couldn't." That's what he said.
+Hal: He did.
+goto l_end
+:l_end
+> give:p18 flag:hal_spur_told time+20
+end
+
+@s_flood
+*4:50 a.m. The river has swallowed the lower bridge road. Mo is at the depot door in a poncho, dripping, holding a thermos like a flag.*
+Mo: Orchard Farm and the lakeside cabins are cut off. The county boats are an hour out.
+Mo: You've got a bus with the highest ground clearance in the Hollow and a name that makes people smile.
+Noor: This isn't what I signed up for.
+Mo: Nobody signs up for a flood, kid. You just show up.
+? Go. I'll get them out. | flag:flood_go mo+3 | l_go
+? Call the county again first. | flag:flood_call | l_call
+:l_go
+Noor: Six people. Farm and lake. The Square is high and dry.
+Mo: Take it slow in the water. She floats better if you don't panic.
+> event:evac
+end
+:l_call
+*Eleven minutes of hold music. When it clears you take the bus anyway.*
+> event:evac time+30
+end
+
+@s_evac_done
+*The Square gym smells like wet wool and coffee. Six neighbors on folding chairs, blankets, a toddler asleep on Anders's shoulder.*
+Anders: Eli's old bus. I'd know that horn anywhere.
+Noor: She floats. Barely.
+Anders: He'd have said that. Almost word for word.
+Priya: The Hadley bus. I'll tell the board.
+> cash+40 ruth+1 teo+1 hal+2 mo+2 greer+2 score+8 give:p19 time+10
+end
+
+@f_flood
+*The county boats finally came at dusk. Nobody was hurt. Anders's boy has a cut on his chin and a story he'll tell for decades.*
+Noor: I should've started earlier. I should've asked for more hands.
+Anders: Sure. And I should've moved the tractor. We're all full of should.
+*He puts a hand on the bus's flank. It's still wet.*
+Anders: Next time, call me first.
+> lesson:share mo+1
+end
+
+@s_greer_data
+*Greer has set her tablet on the counter. The spreadsheet is open. The loop looks almost respectable.*
+Greer: Your average load is up thirty percent. Two incidents, both weather. Compared with a month ago, you're an outlier.
+Noor: Is that good?
+Greer: It's data. Data is neutral. Unfortunately, it's persuasive.
+Greer: My board meets soon. They'll ask who benefits. Not just who rides, but who's left behind if we cut. I'd like the stories you've collected.
+? Share the ledger. Everything. | flag:data_shared greer+4 | l_share
+? Keep the ledger private. It isn't a dataset. | flag:data_kept greer-1 ruth+2 | l_keep
+? Share the numbers. Not the names. | flag:data_numbers greer+2 | l_num
+:l_share
+Greer: Thank you. This could change the amendment.
+goto l_e
+:l_keep
+Greer: I understand. I'll have to work without it.
+Greer: For what it's worth, I'd have kept it too.
+goto l_e
+:l_num
+Greer: That's a defensible line. I'll write it up carefully.
+goto l_e
+:l_e
+> give:p13 time+15
+end
+
+@s_fest_prep
+*The Square, half-dressed in string lights and folding tables. Hal stands in the middle of it with a wrench he is clearly not qualified to use.*
+Hal: Don't say it.
+Noor: Say what?
+Hal: That I'm helping. That I'm "participating in the community." It's a pie contest.
+Noor: I didn't say anything.
+Hal: You were thinking it very loudly.
+Hal: The festival's on the fifteenth. The bus is the only thing that gets the lake people and the farm people here. Eli ran extra loops every year. Unpaid.
+? I'll run the extra loops. Free. | hal+3 flag:fest_free score+3 | l_free
+? I'll run them. Fares apply. | flag:fest_paid | l_paid
+:l_free
+Hal: ...Huh. You really are his.
+goto l_e
+:l_paid
+Hal: Fair. Nobody ever said it had to be a charity. Just a bus.
+goto l_e
+:l_e
+> flag:fest_prep time+20
+end
+
+@s_dara_return
+*Summer heat shimmers off the depot's tin roof. A woman in a navy blazer leans against a rental car, pretending she isn't nervous.*
+Dara: You look terrible.
+Noor: You look expensive.
+Dara: I was in the neighborhood. Four hundred and six miles of neighborhood.
+Noor: Dara.
+Dara: I'm not here to fight. I'm here because Hopscotch is gone and I owe you a conversation.
+Noor: You owe me a lot more than that.
+Dara: I know.
+? Come in. The coffee is terrible. | dara+2 flag:dara_back | l_in
+? You've got five minutes. | flag:dara_back | l_five
+? Leave. | dara-3 flag:dara_back | l_leave
+:l_in
+Dara: Like old times.
+Noor: Like old times if old times had a bus.
+goto l_e
+:l_five
+Dara: I can work with five.
+goto l_e
+:l_leave
+Dara: ...I'll be at the lake dock tomorrow. I'm not leaving without telling you.
+goto l_e
+:l_e
+> give:p14 time+15
+end
+
+@s_dara_reveal
+*Evening at the lake. The dock creaks with every step. Dara sits at the end, shoes off, feet in the water, the way she did on the roof of Hopscotch's first office.*
+Dara: When the money dried up, there was a company. Stride Mobility. They wanted the code, the routing models. Not the team. Just the IP.
+Dara: They offered four hundred thousand. I signed. It paid severance for all nineteen people. Eleven of them had kids.
+Noor: You sold Hopscotch without telling me.
+Dara: You'd stopped answering. You were in a hotel in Austin pretending we hadn't missed payroll.
+Noor: ...That's not fair.
+Dara: It's not fair. It's true. They're not a bad company, Noor. They want to buy more. They're sniffing around you. Your route data, your bus.
+Noor: Of course they are.
+? You sold the thing I built. | dara-3 | l_blame
+? You paid nineteen people. | dara+4 flag:dara_forgiven | l_thanks
+? Say it again. The part about the kids. | dara+2 | l_kids
+:l_blame
+Dara: Yes. I did. I'm sorry. It was the only way anyone got paid.
+> scene:f_dara
+goto l_e
+:l_thanks
+Noor: That's the thing, isn't it. You did the right thing and I'm angry because I wasn't there to do it.
+Dara: Yeah.
+goto l_e
+:l_kids
+Dara: Eleven. Four of them are still in touch. They ask about you.
+Noor: ...They do?
+Dara: Every time.
+goto l_e
+:l_e
+> give:p20 flag:dara_deal_known time+20
+end
+
+@f_dara
+*The anger comes out sideways, the way it always does. You say three things you can't take back and she nods at all of them, like a person absorbing weather.*
+Dara: I'm going to give you a minute.
+Noor: Don't.
+Dara: I'll be at the inn.
+*She walks the length of the dock without looking back. The ball in your pocket is warm from your hand.*
+Noor: Say it plain, Noor. How hard can it be.
+> lesson:say
+end
+
+@s_festival
+*The Square at dusk. Four hundred paper lanterns. A pie contest, a brass band that knows exactly two songs, and a long line of neighbors who got here on a bus that was supposed to be a joke.*
+Ruth: Don't look so shocked, dear. We're a town. We do this.
+Teo: I made a sign. It says BOUNCE. Eli would've hated it.
+Hal: The pie's mediocre. Don't tell anyone.
+[score>=30] Anders: Folks are saying the Hadley bus is the only reason we all made it this year.
+[score<30] Anders: Not a bad turnout, considering the route's been hit and miss.
+*Someone starts a chant. A tiny, silly chant. BOUNCE. BOUNCE. BOUNCE. The ball is in your pocket. Teo is grinning like a kid who's been handed a secret.*
+? Toss the ball to Teo. Let it drop. | teo+4 ruth+2 hal+2 flag:ball_tossed score+6 | l_toss
+? Keep it in your pocket. It's personal. | | l_keep
+:l_toss
+*It hits the cobbles. It rises, impossibly high, catching the lantern light. Four hundred people lean in. For one second nothing is wrong with the world.*
+Noor: It only bounces if you let it hit the ground.
+Ruth: Hm. So that's what he meant.
+> give:p21 event:ball
+goto l_end
+:l_keep
+*The festival goes on. You're part of it, a little. Not all the way.*
+goto l_end
+:l_end
+> time+60 cash+30
+end
+
+@f_festival
+*You hear it from the depot porch: the band, the cheering, the rattle of tin lanterns. You don't go. You tell yourself there will be other festivals.*
+Teo: You weren't there.
+Noor: I know.
+Teo: Eli didn't miss one in thirty-eight years.
+Noor: I know.
+> lesson:fixit
+end
+
+@s_pike
+*A black SUV glides into the depot yard and parks perfectly parallel. A man in a charcoal suit steps out, adjusts one cuff, and smiles with exactly the right number of teeth.*
+Pike: Ms. Hadley. Marcus Pike, Stride Mobility. I admire the bus.
+Noor: Stride bought Hopscotch's code.
+Pike: We did. And we'd like to buy the route, the data, and the name. Four hundred and fifty thousand. You walk away with enough to start over somewhere sunny.
+Noor: And the Hollow?
+Pike: Gets a modern fleet within two years. Electric. Reliable. Branded.
+Noor: And the people who ride today?
+Pike: Will ride something better.
+? Interesting. Send me the paperwork. | flag:pike_paper | l_paper
+? No. Not for sale. | flag:pike_no | l_no
+? Let me think about it. | flag:pike_think | l_think
+:l_paper
+Pike: Wise.
+goto l_e
+:l_no
+Pike: Everyone's for sale at the right number. I'll leave the card.
+goto l_e
+:l_think
+Pike: Thinking is free. The offer expires with the vote.
+goto l_e
+:l_e
+> flag:pike_met give:p23 time+10
+end
+
+@s_campaign
+*Greer has pulled two folding tables into a corner of the hall and made them look like an office. She is writing AMENDMENT at the top of a legal pad.*
+Greer: I can bring a revised proposal to the board. It keeps the loop, trims it, adds an express spur. A hybrid. It won't make anyone entirely happy.
+Noor: Neither will the old one.
+Greer: Which is the point of a compromise.
+[greer>=8] Greer: I wanted to tell you something. I grew up on a route like yours, in a different county. It was cut when I was twelve. My father lost the only way he could reach the doctor.
+[greer>=8] Noor: Is that why?
+[greer>=8] Greer: It's why I believe in efficiency. And why I hate it.
+? Ask her to co-write the hybrid plan. | greer+4 flag:long_plan | l_co
+? Rally the riders. I'll fight the plan outright. | greer-2 ruth+2 teo+2 hal+2 flag:fight_plan | l_fight
+? Take the Stride offer. Everyone's tired. | flag:sold_plan | l_sell
+:l_co
+Greer: Then we have a draft by tonight.
+goto l_e
+:l_fight
+Greer: That's your right. The room will be full.
+goto l_e
+:l_sell
+Greer: I'd hoped you wouldn't.
+goto l_e
+:l_e
+> give:p16 time+20
+end
+
+@s_cassette
+*Last night before the vote. Under the third seat, taped to the springs, is a cassette. Handwritten label: FOR N., WHEN SHE'S READY.*
+*The old tape deck in the depot office takes it with a click.*
+Eli: Noor. If you're hearing this, you stayed. I'm proud and I'm sorry. Both.
+Eli: I should've called more. I should've told you why I kept the bus. It was never about the bus.
+Eli: Thirty years ago I made a decision about a rail spur and a lot of people paid for it. I decided I'd drive them home for the rest of my life. That's all this was.
+Eli: You don't have to drive. You don't have to stay. But whatever you do, don't let the ball sit in your hand.
+Eli: It only bounces if you let it hit the ground. Let it fall, kiddo. It'll come back.
+*The tape hisses, then clicks. You sit in the dark for a long time. When you stand, the decision is already half made.*
+> give:p24 flag:cassette_heard
+end
+
+@s_hearing
+*Town Hall, packed. Folding chairs, standing room, people in coats. Greer at the dais. Pike in the second row with a tablet.*
+Greer: We'll hear public comment before tomorrow's vote.
+[ruth>=12] Ruth: I'm eighty-two. I've ridden that bus nine hundred times. I'll ride whatever you build me, as long as it comes to the door.
+[teo>=12] Teo: I want to be a driver. A real one. I need a bus to learn on.
+[hal>=12] Hal: I held a grudge for thirty years against a man who drove my customers home every night. I'm a damned fool. Keep the loop.
+[mo>=12] Mo: I keep the fleet. Someone has to.
+[lena>=12] Lena: My father drove that route for thirty-eight years. I'd like to see what my daughter does with it.
+[dara>=12] Dara: I sold her company. I'd like to help build the next one.
+Noor: I'm Noor Hadley. I drive the Hollow's bus.
+Noor: I lost a company, a lot of money, and most of my certainty. What I found out is that people can be a ledger. That the route is the thing.
+Noor: Tomorrow you'll vote on a plan. For tonight: thank you for riding.
+> score+5 time+30
+end
+
+@s_vote
+*Morning. The hall is already full. The ball is in your pocket, warm from your hand. Greer taps a gavel that isn't a gavel.*
+Greer: Ms. Hadley. As operator of record, you have the floor before the board votes. Which plan do you put your name to?
+*Some paths only open if enough neighbors stand behind you, or if you've made the right friends.*
+:choose
+? The Ground. A rider-owned cooperative. Everyone gets a say, everyone gets a seat. | flag:end_ground | l_ground | allies>=3,score>=20
+? The Long Way. Co-write Greer's hybrid and join the loop to the valley express. | flag:end_long | l_long | greer>=6
+? Scale. Sell to Stride, take the money, let them modernize. | flag:end_scale | l_scale | flag:pike_met
+? Detour. I'm done. Sell the bus and go. | flag:end_detour | l_detour
+? Not yet. I need another minute. | | l_wait
+:l_wait
+Noor: Give me a minute.
+Greer: Take your time. The room will wait.
+goto choose
+:l_ground
+Noor: The Ground. The bus belongs to the people it carries.
+Ruth: Seconded. I've been waiting forty years for someone to ask.
+> event:ending:ground
+end
+:l_long
+Noor: The Long Way. We keep the loop. We add the express. Nobody gets left on the road.
+Greer: I'll write it up tonight.
+> event:ending:long
+end
+:l_scale
+Noor: Scale. Stride gets the route. The Hollow gets a modern fleet.
+Pike: A wise decision.
+> event:ending:scale
+end
+:l_detour
+Noor: I'm sorry. I can't do this anymore. Sell the bus. I'm going.
+*Nobody says anything. The ball slips out of your hand.*
+> event:ending:detour
+end
+
+@f_crash
+*Metal complains. Glass stays whole, mostly. Bounce settles on her springs with a long, tired sigh, and the engine ticks as it cools.*
+Noor: Okay. Okay. Nobody was on board. Nobody got hurt. Just me, and a very expensive noise.
+*Headlights swing across the shoulder. A pickup, orange, rust-freckled, towing nothing.*
+Mo: Heard it from the yard. Thought I'd come count the pieces.
+Noor: I was going too fast.
+Mo: You were going fast the way people go fast when they're behind on something. Every driver in this valley has done it once.
+Mo: Eli put her in a ditch in '94. Wrote it in the book, then wrote the rule under it.
+Noor: What was the rule?
+Mo: Slow is smooth. Smooth is fast. You can't outrun a morning you already missed.
+*He hooks a chain to the bumper and pats the hood like a horse.*
+Mo: Go home. Sleep. I'll have her in the depot by the time the coffee's cold.
+> lesson:slow mo+2 time+40
+end
+
+@f_broke
+*The cash drawer is a drawer. That is the whole inventory. You count it twice, in case the second count is kinder.*
+Noor: Ten dollars. I used to have a runway. Now I have a bus and ten dollars.
+*A knock on the depot door. Hal, in his apron, holding a paper bag that smells like onions and mercy.*
+Hal: Breakfast. Nobody's paying, so don't make it weird.
+Noor: Hal, I can't...
+Hal: Your grandfather ran a tab at my diner for eleven years. Paid it in rides and a rebuilt griddle. This is the interest.
+*He sets an envelope on the desk. Inside: a handful of small bills, a pencil note. FUEL. PIE. DON'T QUIT.*
+Noor: I don't know how to be the person who takes this.
+Hal: Practice. It's mostly just saying thank you without flinching.
+Noor: ...Thank you.
+Hal: There it is.
+*You hit the ground, and the ground, it turns out, holds.*
+> lesson:ground cash+80 hal+3 time+20
+end

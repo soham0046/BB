@@ -1,0 +1,47 @@
+# ride chatter: key then lines "Speaker: text"
+@generic
+Passenger: Is it me, or does this bus feel like a trampoline?
+Passenger: My grandmother rode this exact seat. She'd have loved the bounce.
+Passenger: Eli used to hum when he drove. You hum too. Did you know?
+Passenger: Heater's working. That's a first.
+Passenger: Nice stop. Smooth. I barely spilled anything.
+Passenger: I only ever take the bus for the view.
+Passenger: They say the county wants to cancel us. Is that true?
+Passenger: Mind if I keep the window open? Just a crack.
+Passenger: The old driver would've waved at that dog. You should wave.
+Passenger: Whoa. Easy on the bounce, please. I'm carrying eggs.
+@autumn
+Passenger: Look at those maples. Best color in years.
+Passenger: First sweater weather. I love it.
+Passenger: Leaf season. Half the town drives slow just to look.
+@winter
+Passenger: Brr. Thanks for the heater.
+Passenger: Careful on the ice. I know you know. I'm just saying it.
+Passenger: I never trust a road after the plow. They always miss the bend.
+@spring
+Passenger: Mud season. It never fails.
+Passenger: The orchard's in bloom. Open the windows!
+Passenger: That river's loud this year.
+@summer
+Passenger: Hot enough for you? Hot enough for the bus, even.
+Passenger: Heard the festival's the fifteenth. Are you running extras?
+Passenger: Windows down. Bring the breeze.
+@ch0
+Passenger: You're Eli's girl. You've got his hands on the wheel.
+Passenger: A Hadley back in the driver's seat. Folks are talking.
+@ch1
+Passenger: Somebody should check on the old folks in this weather.
+@ch2
+Passenger: Thaw's a good time to start something.
+@ch3
+Passenger: I'd ride this bus to the end of the world, but I'd want a window seat.
+@ch4
+Passenger: The vote's coming. Everyone's got an opinion.
+@ruth
+Ruth: Slower around the bend, dear. Not for me. For the principle.
+Ruth: Eli used to sing off key on this stretch. You're allowed to.
+Ruth: I've watched these hills for eighty years. They're getting shorter. Or I'm getting taller.
+@teo
+Teo: You can go faster. I won't tell.
+Teo: When I'm sixteen, I'm driving this thing. I've already got a license plan.
+Teo: Do you think the bus has feelings? Asking for science.
